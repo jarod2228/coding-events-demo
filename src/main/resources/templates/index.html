@@ -2,10 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
+<body class="container">
 
-<h1>Coding Events</h1>
+    <h1>Coding Events</h1>
+
+    <header th:replace="fragments :: header"></header>
 
 <header th:replace="fragments :: header"></header>
+    <ul>
+        <th:block th:each="event : ${events}">
+            <li th:text="${event}"></li>
+        </th:block>
+    </ul>
 
 </body>
 </html>

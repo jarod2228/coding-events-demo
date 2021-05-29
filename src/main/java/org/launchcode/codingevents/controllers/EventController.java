@@ -37,5 +37,17 @@ public class EventController {
         events.add(eventName);
         return "redirect:";
     }
+    //lives at /events/create
+    @GetMapping("create")
+    public String renderCreateEventForm() {
+        return "events/create";
+    }
+
+    //lives at /events/create
+    @PostMapping("create")
+    public String createEvent(@RequestParam String eventName) {
+        events.add(eventName);
+    return "redirect:"; //redirects to the root path for this contgroller ("events") so we don't need more. could be "redirect: events/create" if it was different.
+    }
 
 }
