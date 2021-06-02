@@ -1,3 +1,4 @@
+
 package org.launchcode.codingevents.controllers;
 
 import org.springframework.stereotype.Controller;
@@ -8,12 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by Chris Bay
- */
+
 @Controller
 @RequestMapping("events")
 public class EventController {
@@ -22,21 +20,15 @@ public class EventController {
 
     @GetMapping
     public String displayAllEvents(Model model) {
-//        model.addAttribute("title", "All Events");
-//        model.addAttribute("events", events);
-//        return "events/index";
-        HashMap<String, String> events = new HashMap<>();
-        events.put("A Coding Event", "Where people code together");
-        events.put("Code With Pride", "Where other people code together");
-        events.put("Couch Potato Day", "Where people do not code, but together");
-        model.addAttribute(events);
-        return "events";
+        model.addAttribute("title", "All Events");
+        model.addAttribute("events", events);
+        return "events/index";
     }
 
     @GetMapping("create")
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
-        return "events/index";
+        return "events/create";
     }
 
     @PostMapping("create")

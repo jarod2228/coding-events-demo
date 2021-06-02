@@ -1,36 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head">
-    <meta charset="utf-8"/>
-    <title></title>
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
 
 <header th:replace="fragments :: header"></header>
 
-<table>
-    <thead>
-    <tr>
-        <th>Event Name</th>
-        <th>Description</th>
-        <th>Address</th>
-    </tr>
-    </thead>
+<ul>
     <th:block th:each="event : ${events}">
-    <tr>
-        <td th:text="${event.getKey()}"></td>
-        <td th:text="${event.getValue()}"></td>
-        <td th:replace="fragments :: address"></td>
-    </tr>
+        <li th:text="${event}"></li>
     </th:block>
-</table>
-<!--below is the original before altering-->
-<!--<ul>-->
-<!--    <th:block th:each="event : ${events}">-->
-<!--        <li th:text="${event}"></li>-->
-<!--    </th:block>-->
-<!--</ul>-->
-<!--above is the original without altering-->
+</ul>
 
 </body>
 </html>
