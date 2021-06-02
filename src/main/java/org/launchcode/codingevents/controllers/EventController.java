@@ -29,14 +29,14 @@ public class EventController {
         events.put("A Coding Event", "Where people code together");
         events.put("Code With Pride", "Where other people code together");
         events.put("Couch Potato Day", "Where people do not code, but together");
-        model.addAttribute(events);
-        return "events";
+        model.addAttribute("events", events);
+        return "events/index";
     }
 
     @GetMapping("create")
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
-        return "events/index";
+        return "events/create";
     }
 
     @PostMapping("create")
