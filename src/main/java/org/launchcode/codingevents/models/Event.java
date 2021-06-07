@@ -38,8 +38,11 @@ public class Event {
     @NotNull(message = "Please check a box.")
     private boolean isOutsideFoodAndDrinkAllowed;
 
+    private EventType type;
 
-    public Event(String name, String description, String contactEmail, String location, boolean mustRegister, int attendees, boolean isOutsideFoodAndDrinkAllowed) {
+    public Event(String name, String description, String contactEmail, String location, boolean mustRegister, int attendees,
+                 boolean isOutsideFoodAndDrinkAllowed, EventType type) {
+        this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
@@ -47,12 +50,15 @@ public class Event {
         this.mustRegister = mustRegister;
         this.attendees = attendees;
         this.isOutsideFoodAndDrinkAllowed = isOutsideFoodAndDrinkAllowed;
-        this.id = nextId;
-        nextId++;
+        this.type = type;
+
 
     }
 
-    public Event() {}
+    public Event() {
+        this.id = nextId;
+        nextId++;
+    }
 
     public String getName() {
         return name;
@@ -108,6 +114,14 @@ public class Event {
 
     public void setOutsideFoodAndDrinkAllowed(boolean outsideFoodAndDrinkAllowed) {
         isOutsideFoodAndDrinkAllowed = outsideFoodAndDrinkAllowed;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     @Override
