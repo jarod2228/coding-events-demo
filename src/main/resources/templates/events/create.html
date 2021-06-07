@@ -8,37 +8,43 @@
 <form method="post">
     <div class="form-group">
         <label>Name
-            <input th:field="${event.name}" class="form-control">
+            <input type="text" th:field="${event.name}" class="form-control">
         </label>
         <p class="error" th:errors="${event.name}"></p>
     </div>
     <div class="form-group">
         <label>Description
-            <input th:field="${event.description}" class="form-control">
+            <input type="text" th:field="${event.description}" class="form-control">
         </label>
         <p class="error" th:errors="${event.description}"></p>
     </div>
     <div class="form-group">
         <label>Location
-            <input th:field="${event.location}" class="form-control">
+            <input type="text" th:field="${event.location}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.location}"></p>
+    </div>
+    <div class="form-group">
+        <label>Number of Attendees
+            <input type="number" th:field="${event.location}" class="form-control">
         </label>
         <p class="error" th:errors="${event.location}"></p>
     </div>
     <div class="form-group">
         <label>Registration Mandatory
-            <input th:field="${event.mustRegister}" class="form-control">       <!--This mustRegister div is probably wrong-->
+            <input type="checkbox" th:field="${event.mustRegister}" class="form-control">       <!--This mustRegister div is probably wrong-->
         </label>
         <p class="error" th:errors="${event.mustRegister}"></p>
     </div>
     <div class="form-group">
         <label>Outside Food and Drink Allowed
-            <input th:field="${event.isOutsideFoodAndDrinkAllowed}" class="form-control"> <!--This outside food and drink div is probably wrong-->
+            <input type="checkbox" th:field="${event.isOutsideFoodAndDrinkAllowed}" class="form-control"> <!--This outside food and drink div is probably wrong-->
         </label>
         <p class="error" th:errors="${event.isOutsideFoodAndDrinkAllowed}"></p>
     </div>
     <div class="form-group">
         <label>Contact Email
-            <input th:field="${event.contactEmail}" class="form-control">
+            <input type="email" th:field="${event.contactEmail}" class="form-control">
         </label>
             <p class="error" th:errors="${event.contactEmail}"></p>
     </div>
@@ -46,7 +52,7 @@
         <label>Type
             <select th:field="${event.type}">
                 <option th:each="type : ${types}"
-                th:valu="${type}"
+                        th:value="${type}"
                         th:text="${type.displayName}"
                 ></option>
             </select>
